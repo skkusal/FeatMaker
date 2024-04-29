@@ -56,7 +56,6 @@ ADD ./ ${BASE_DIR}
 WORKDIR ${BASE_DIR}/klee
 RUN echo "export LLVM_COMPILER=clang" >> /root/.bashrc
 RUN echo "KLEE_REPLAY_TIMEOUT=1" >> /root/.bashrc
-RUN rm -r build
 RUN mkdir build
 WORKDIR ${BASE_DIR}/klee/build
 RUN ls /root/featmaker
