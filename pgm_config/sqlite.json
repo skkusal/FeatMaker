@@ -1,0 +1,9 @@
+{
+"pgm_name": "sqlite3",
+"pgm_dir": "benchmarks/sqlite-3.33.0/obj-llvm/",
+"exec_dir": "",
+"gcov_path": "benchmarks/sqlite-3.33.0/obj-gcov",
+"gcov_file": "*.gcov",
+"gcda_file": "*.gcda",
+"sym_options" : "-sym-stdin 20" 
+}

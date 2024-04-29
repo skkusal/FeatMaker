@@ -1,0 +1,9 @@
+{
+"pgm_name": "make",
+"pgm_dir": "benchmarks/make-4.3/obj-llvm/",
+"exec_dir": "",
+"gcov_path": "benchmarks/make-4.3/obj-gcov",
+"gcov_file": "*.gcov */*.gcov",
+"gcda_file": "*.gcda */*.gcda",
+"sym_options" : "-n -f A -sym-files 1 40"
+}
