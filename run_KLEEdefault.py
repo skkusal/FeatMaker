@@ -9,7 +9,7 @@ from featmaker_subscript import klee_executor_default
 from featmaker_subscript import data_generator
 from featmaker_subscript import feature_generator
 
-exp_dir = "original-klee_experiments"
+exp_dir = "depth_experiments"
 
 def load_pgm_config(config_file):
     with open(config_file, 'r') as f:
