@@ -30,7 +30,7 @@ $ python3 run_featmaker.py --pgm find --output_dir test
 # run naive
 $ python3 run_featmaker.py --main_option naive --pgm find --output_dir test
 # run original KLEE
-$ python3 run_depth.py --pgm find --output_dir short_test
+$ python3 run_depth.py --pgm find --output_dir test
 ```
 For more details about options, you can use following commands:
 ```bash
