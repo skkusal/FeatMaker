@@ -19,7 +19,7 @@ RUN make install
 
 RUN apt-get -y install python3-pip
 RUN pip3 install --upgrade pip
-RUN pip3 install tabulate numpy wllvm scikit-learn
+RUN pip3 install tabulate numpy wllvm scikit-learn matplotlib
 RUN apt-get -y install clang-6.0 llvm-6.0 llvm-6.0-dev llvm-6.0-tools
 RUN ln -s /usr/bin/clang-6.0 /usr/bin/clang
 RUN ln -s /usr/bin/clang++-6.0 /usr/bin/clang++
