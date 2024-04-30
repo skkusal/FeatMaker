@@ -28,7 +28,7 @@ class klee_executor:
         if self.pgm in ["find", "sqlite3"]:
             search_key = "branching"
 
-        search_stgy = "random-path --search=nurs:covnew"
+        search_stgy = "nurs:depth"
             
         run_cmd = " ".join([self.bin_dir+"/klee", 
                                     "-only-output-states-covering-new", "--simplify-sym-indices", "--output-module=false",
