@@ -1,6 +1,6 @@
 # FeatMaker
 
-FeatMaker automatically generates state features & search strategy for symbolic execution.
+FeatMaker automatically generates state features & search strategy for symbolic execution. Our paper in accepted version is available in this repository, [accepted_paper.pdf](accepted_paper.pdf).
 
 ## Installation
 We recommend to use a docker image for easy and fast installation. To install FeatMaker on local, please follow the instructions on [docker file](Dockerfile)
