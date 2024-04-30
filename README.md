@@ -66,4 +66,11 @@ $ cat bug_table.md
 +-----------------------+-------------+---------+-----------------+
 ```
 You can analyze results in different directories by modifying the 'data\_dict' dictionary in [result_analysis.py](./result_analysis.py). This dictionary uses labels of the data as keys and the locations where the data is stored as values.
-
+```python3
+data_dict = {
+    # Example : "featmaker" : "/root/featmaker/featmaker_experiments/test/find"
+    "featmaker" : "{Directory that featmaker result is stored}",
+    "naive" : "{Directory that naive result is stored}",
+    "Original KLEE" : "{Directory that Original KLEE result is stored}"
+}
+```
