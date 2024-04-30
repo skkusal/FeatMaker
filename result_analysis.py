@@ -63,13 +63,16 @@ for stgy, output_dir in data_dict.items():
         with open(f"{output_dir}/result/iteration-{iteration}/time_result", 'r') as f:
             lines = f.readlines()
             for l in lines:
-                    filename = l.split()[-1]+"_gcov"
-                    covered_branches |= branch_handler(filename)
-                    creation_time = re.search(r'\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}', l).group(0)
-                    creation_time = datetime.strptime(creation_time, '%Y-%m-%d %H:%M:%S')
-                    coverage_lst.append(len(covered_branches))
-                    time_lst.append(creation_time)
+                filename = l.split()[-1]+"_gcov"
+                creation_time = re.search(r'\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}', l).group(0)
+                creation_time = datetime.strptime(creation_time, '%Y-%m-%d %H:%M:%S')
+                tmp_lst.append((creation_time,filename))
         iteration += 1
+    tmp_lst = sorted(tmp_lst, key=lambda x: x[0])
+    for creation_time, filename in tmp_lst:
+        covered_branches |= branch_handler(filename)
+        coverage_lst.append(len(covered_branches))
+        time_lst.append(creation_time)
     time_coverage_data[stgy] = (time_lst,coverage_lst)
     
     with open(f"{output_dir}/error_inputs.txt", 'r') as f:
