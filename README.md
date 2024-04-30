@@ -65,7 +65,7 @@ For visualizing results, we provided ’result_analysis.py’. You can generate 
 ```bash
 $ python3 result_analysis.py
 ```
-![find-coverage-comparison](./coverage.png)
+![find-coverage-comparison](./coverage_figure.png)
 ```bash
 $ cat bug_table.md 
 +-----------------------+-------------+---------+---------+
