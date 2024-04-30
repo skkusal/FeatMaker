@@ -9,21 +9,30 @@ $ docker pull skkusal/featmaker
 $ docker run --rm -it --ulimit='stack=-1:-1' skkusal/featmaker
 ```
 ## Benchmarks
-In the docker image, all 15 benchmarks we used are installed in 'root/featmaker/benchmarks'. Details of Benchmakrs are as follow:
+In the docker image, all 15 benchmarks we used are installed in 'root/featmaker/benchmarks'. Details of Benchmarks are as follow:
 ![benchmark_table](./featmaker_benchmarks.png)
 ## How to run FeatMaker
-You can run FeatMaker with following command in 'root/featmaker' directory. There are two required parameters 'pgm(target program)' and 'output_dir(name of experiment directory)'. 
+You can run short experiment of FeatMaker with following command in 'root/featmaker' directory. There are two required parameters 'pgm(target program)' and 'output_dir(name of experiment directory)'.
 ```bash
-$ python3 run_featmaker.py --pgm find --output_dir test
+$ python3 run_featmaker.py --pgm find --output_dir short_test --total_budget 7200
 ```
 Also we provided 2 more approaches, original KLEE and naive featmaker (random weights and simply accumulated features). Those experiments can be executed with following commands in 'root/featmaker' directory:
 ```bash
 # run naive
+$ python3 run_featmaker.py --main_option naive --pgm find --output_dir short_test --total_budget 7200
+# run original KLEE
+$ python3 run_depth.py --pgm find --output_dir short_test --total_budget 7200
+```
+If you want experiment with same setting with our paper, you can use follwing commands with default options.
+```bash
+# run featmaker
+$ python3 run_featmaker.py --pgm find --output_dir test
+# run naive
 $ python3 run_featmaker.py --main_option naive --pgm find --output_dir test
 # run original KLEE
-$ python3 run_depth.py --pgm find --output_dir test
+$ python3 run_depth.py --pgm find --output_dir short_test
 ```
-For more details about options in featmaker, you can use following commands:
+For more details about options, you can use following commands:
 ```bash
 $ python3 run_featmaker.py --help
 Usage: run_featmaker.py [options]
@@ -59,11 +68,11 @@ $ python3 result_analysis.py
 ![find-coverage-comparison](./coverage.png)
 ```bash
 $ cat bug_table.md 
-+-----------------------+-------------+---------+-----------------+
-|     Bug location      |  featmaker  |  naive  |  Original KLEE  |
-+=======================+=============+=========+=================+
-| ../../src/field.c 385 |      O      |    X    |        X        |
-+-----------------------+-------------+---------+-----------------+
++-----------------------+-------------+---------+---------+
+|     Bug location      |  featmaker  |  naive  |  Depth  |
++=======================+=============+=========+=========+
+| ../../src/field.c 385 |      O      |    X    |    X    |
++-----------------------+-------------+---------+---------+
 ```
 You can analyze results in different directories by modifying the 'data\_dict' dictionary in [result_analysis.py](./result_analysis.py). This dictionary uses labels of the data as keys and the locations where the data is stored as values.
 ```python3
