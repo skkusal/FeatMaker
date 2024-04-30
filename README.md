@@ -80,6 +80,6 @@ data_dict = {
     # Example : "featmaker" : "/root/featmaker/featmaker_experiments/test/find"
     "featmaker" : "{Directory that featmaker result is stored}",
     "naive" : "{Directory that naive result is stored}",
-    "Original KLEE" : "{Directory that Original KLEE result is stored}"
+    "depth" : "{Directory that depth result is stored}"
 }
 ```
