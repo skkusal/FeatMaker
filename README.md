@@ -21,7 +21,7 @@ Also we provided 2 more approaches, original KLEE and naive featmaker (random we
 # run naive
 $ python3 run_featmaker.py --main_option naive --pgm find --output_dir test
 # run original KLEE
-$ python3 run_KLEEdefault.py --pgm find --output_dir test
+$ python3 run_depth.py --pgm find --output_dir test
 ```
 For more details about options in featmaker, you can use following commands:
 ```bash
