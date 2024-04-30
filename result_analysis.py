@@ -1,4 +1,4 @@
-import matplotlib.pyplot as plt
+himport matplotlib.pyplot as plt
 import re
 import os
 import tabulate
@@ -45,7 +45,7 @@ data_dict = {
     # Example : "featmaker" : "/root/featmaker/featmaker_experiments/test/find"
     "featmaker" : "/root/featmaker/featmaker_experiments/test/find",
     "naive" : "/root/featmaker/naive_experiments/test/find",
-    "Original KLEE" : "/root/featmaker/original-klee_experiments/test/find",
+    "depth" : "/root/featmaker/depth_experiments/test/find",
 }
 
 time_coverage_data = {}
@@ -96,7 +96,7 @@ plt.grid(visible=True, linestyle="--", linewidth = "1.5")
 plt.tight_layout()
 plt.savefig(f'coverage_figure.pdf')
 
-bug_table = [["Bug location", "featmaker", "naive", "Original KLEE"]]
+bug_table = [["Bug location", "featmaker", "naive", "depth"]]
 for error_location in error_case_data:
     r = [error_location]
     for stgy in ["featmaker", "naive", "Original KLEE"]:
