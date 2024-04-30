@@ -1,9 +1,9 @@
 # FeatMaker
 
-FeatMaker automatically generates state features & search strategy for symbolic execution. Our paper of accepted version is available in this repository, [accepted_paper.pdf](accepted_paper.pdf).
+FeatMaker is a tool that generates a fully automated search strategy for symbolic execution, utilizing machine-tuned state features. Our paper of accepted version is available in this repository, [accepted_paper.pdf](accepted_paper.pdf).
 
 ## Installation
-We recommend to use a docker image for easy and fast installation. To install FeatMaker on local, please follow the instructions on [docker file](Dockerfile)
+We recommend using a Docker image for quick and easy installation. To install FeatMaker, please follow the instructions provided in [docker file](Dockerfile).
 ```bash
 $ docker pull skkusal/featmaker
 $ docker run --rm -it --ulimit='stack=-1:-1' skkusal/featmaker
@@ -12,18 +12,18 @@ $ docker run --rm -it --ulimit='stack=-1:-1' skkusal/featmaker
 In the docker image, all 15 benchmarks we used are installed in 'root/featmaker/benchmarks'. Details of Benchmarks are as follow:
 ![benchmark_table](./featmaker_benchmarks.png)
 ## How to run FeatMaker
-You can run short experiment of FeatMaker with following command in 'root/featmaker' directory. There are two required parameters 'pgm(target program)' and 'output_dir(name of experiment directory)'.
+You can run a short experiment of FeatMaker with the following command in the 'root/featmaker' directory. There are two required parameters: 'pgm' (target program) and 'output_dir' (name of the experiment directory).
 ```bash
 $ python3 run_featmaker.py --pgm find --output_dir short_test --total_budget 7200
 ```
-Also we provided 2 more approaches, original KLEE and naive featmaker (random weights and simply accumulated features). Those experiments can be executed with following commands in 'root/featmaker' directory:
+We also provided two additional approaches: the original KLEE and a naive version of FeatMaker (with random weights and simply accumulated features). You can execute these experiments with following commands in the 'root/featmaker' directory:
 ```bash
 # run naive
 $ python3 run_featmaker.py --main_option naive --pgm find --output_dir short_test --total_budget 7200
 # run original KLEE
 $ python3 run_depth.py --pgm find --output_dir short_test --total_budget 7200
 ```
-If you want experiment with same setting with our paper, you can use follwing commands with default options.
+If you want experiment with same setting as in our paper, you can use the follwing commands with default options.
 ```bash
 # run featmaker
 $ python3 run_featmaker.py --pgm find --output_dir test
@@ -32,7 +32,7 @@ $ python3 run_featmaker.py --main_option naive --pgm find --output_dir test
 # run original KLEE
 $ python3 run_depth.py --pgm find --output_dir test
 ```
-For more details about options, you can use following commands:
+For more details about the options, you can use the following commands:
 ```bash
 $ python3 run_featmaker.py --help
 Usage: run_featmaker.py [options]
@@ -61,7 +61,7 @@ The results will be saved in the 'featmaker_experiments/{output_dir}/{pgm}' dire
 4. Error cases : 'results/error_inputs' file
 
 ## Visualizing results
-For visualizing results, we provided ’result_analysis.py’. You can generate a time-coverage graph, 'coverage_figure.pdf', and a bug table, 'bug_table.md', with a simple command:
+For visualizing results, we provided 'result_analysis.py'. You can generate a time-coverage graph, 'coverage_figure.pdf', and a bug table, 'bug_table.md', with a simple command:
 ```bash
 $ python3 result_analysis.py
 ```
@@ -74,7 +74,7 @@ $ cat bug_table.md
 | ../../src/field.c 385 |      O      |    X    |    X    |
 +-----------------------+-------------+---------+---------+
 ```
-You can analyze results in different directories by modifying the 'data\_dict' dictionary in [result_analysis.py](./result_analysis.py). This dictionary uses labels of the data as keys and the locations where the data is stored as values.
+You can analyze results in different directories by modifying the 'data\_dict' dictionary in [result_analysis.py](./result_analysis.py). This dictionary uses data labels as keys and their corresonding stage locations as values.
 ```python3
 data_dict = {
     # Example : "featmaker" : "/root/featmaker/featmaker_experiments/test/find"
