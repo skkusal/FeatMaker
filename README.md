@@ -21,7 +21,7 @@ We also provided two additional approaches: the original KLEE and a naive versio
 # run naive
 $ python3 run_featmaker.py --main_option naive --pgm find --output_dir short_test --total_budget 7200
 # run original KLEE
-$ python3 run_depth.py --pgm find --output_dir short_test --total_budget 7200
+$ python3 run_KLEEdefault.py --pgm find --output_dir short_test --total_budget 7200
 ```
 If you want experiment with same setting as in our paper, you can use the follwing commands with default options.
 ```bash
@@ -30,7 +30,7 @@ $ python3 run_featmaker.py --pgm find --output_dir test
 # run naive
 $ python3 run_featmaker.py --main_option naive --pgm find --output_dir test
 # run original KLEE
-$ python3 run_depth.py --pgm find --output_dir test
+$ python3 run_KLEEdefault.py --pgm find --output_dir test
 ```
 For more details about the options, you can use the following commands:
 ```bash
